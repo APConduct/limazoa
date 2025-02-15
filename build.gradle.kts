@@ -12,8 +12,14 @@ repositories {
 dependencies {
     testImplementation(platform("org.junit:junit-bom:5.10.0"))
     testImplementation("org.junit.jupiter:junit-jupiter")
+    implementation ("uk.co.electronstudio.jaylib:jaylib:5.5.+")
+
 }
 
 tasks.test {
     useJUnitPlatform()
+}
+
+tasks.withType<JavaExec> {
+    jvmArgs = listOf("-XstartOnFirstThread")
 }
